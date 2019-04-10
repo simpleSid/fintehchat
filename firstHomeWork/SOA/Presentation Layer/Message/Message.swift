@@ -11,6 +11,8 @@ import Foundation
 
 protocol MessageCellConfiguration: class {
     var text: String? { get set }
+    var fromUser: String? { get set }
+    var toUser: String? { get set }
 }
 
 class StoredMessage: MessageCellConfiguration {

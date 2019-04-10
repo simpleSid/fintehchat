@@ -14,6 +14,7 @@ protocol ConverastionCellConfiguration : class {
     var date: Date? { get set }
     var online: Bool { get set }
     var hasUnreadMessages: Bool { get set }
+    var storedMessages: [MessageCellConfiguration] { get set }
 }
 
 class User: ConverastionCellConfiguration {
@@ -24,7 +25,7 @@ class User: ConverastionCellConfiguration {
     var online: Bool
     var hasUnreadMessages: Bool
     var isReuse: Bool
-    var storedMessages = [StoredMessage]()
+    var storedMessages: [MessageCellConfiguration] = [StoredMessage]()
     
     init(name: String?, message: String?, date: Date?, online: Bool, hasUnreadMessage: Bool) {
         self.name = name
@@ -39,6 +40,48 @@ class User: ConverastionCellConfiguration {
 
 
 
+protocol UsersStorage {
+    var users: [ConverastionCellConfiguration] {get set}
+}
+
+class Userss: UsersStorage {
+    var users: [ConverastionCellConfiguration] = [ConverastionCellConfiguration]()
+}
+
+
+
+
+protocol UserStorage {
+    func getOnlineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration]
+    func getOflineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration]
+}
+
+class onlineStatusService: UserStorage {
+    
+    func getOnlineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration] {
+        let users = users.filter { (user) -> Bool in
+            return user.online
+        }
+        return users
+    }
+    
+    func getOflineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration] {
+        let users = users.filter { (user) -> Bool in
+            return !user.online
+        }
+        return users
+    }
+    
+}
+
+
+
+
+
+
+
+
+// старый рабочий вариант
 
 class Users {
     
