@@ -17,7 +17,7 @@ class ConversationTableViewController: UIViewController, UITableViewDelegate, UI
     
     let multipeerManager = CommunicationManager()
     
-    var mcInterlocutor: User!
+    var mcInterlocutor: ConverastionCellConfiguration!
     let communicationManager = CommunicationManager()
     
     override func viewDidLoad() {

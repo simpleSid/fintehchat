@@ -56,7 +56,7 @@ protocol UserStorage {
     func getOflineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration]
 }
 
-class onlineStatusService: UserStorage {
+class OnlineStatusService: UserStorage {
     
     func getOnlineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration] {
         let users = users.filter { (user) -> Bool in
@@ -72,36 +72,4 @@ class onlineStatusService: UserStorage {
         return users
     }
     
-}
-
-
-
-
-
-
-
-
-// старый рабочий вариант
-
-class Users {
-    
-    static var users = [User]()
-    
-    static var onlineUsers: [User] {
-        get {
-            let users = self.users.filter { (user) -> Bool in
-                return user.online
-            }
-            return users
-        }
-    }
-    
-    static var oflineUsers : [User] {
-        get {
-            let users = self.users.filter { (user) -> Bool in
-                return !user.online
-            }
-            return users
-        }
-    }
 }
