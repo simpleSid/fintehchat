@@ -12,23 +12,23 @@ class ConversationListManager {
     
     static var nameOfFont = ""
     
-    static func changeMessagefont(cell: ConversationTableViewCell, user: User) -> ConversationTableViewCell {
+    static func changeMessagefont(cell: ConversationTableViewCell, message: String?) -> ConversationTableViewCell {
 
-        if user.message == nil {
+        if message == nil {
             nameOfFont = "Chalkboard SE"
             cell.lastMessageLabel.text = "No messages yet"
             cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
         } else {
             nameOfFont = "Apple SD Gothic Neo"
             cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-            cell.lastMessageLabel.text = user.message
+            cell.lastMessageLabel.text = message
         }
         return cell
     }
     
     
-    static func changeUnreadMessageStyle(cell: ConversationTableViewCell, user: User) -> ConversationTableViewCell {
-        if user.hasUnreadMessages {
+    static func changeUnreadMessageStyle(cell: ConversationTableViewCell, hasUnreadMessages: Bool) -> ConversationTableViewCell {
+        if hasUnreadMessages {
             cell.lastMessageLabel.font = UIFont(name: nameOfFont + " Bold", size: 17)
         } else {
             cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)

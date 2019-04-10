@@ -145,11 +145,11 @@
 		AA907D36225DE70100B1CCC9 /* SOA */ = {
 			isa = PBXGroup;
 			children = (
+				AA89DD0C220CB202009DBFED /* Info.plist */,
 				AA89DD00220CB201009DBFED /* AppDelegate.swift */,
 				AA907D37225DE70D00B1CCC9 /* Presentation Layer */,
 				AA907D38225DE72F00B1CCC9 /* Service Layer */,
 				AA907D39225DE73D00B1CCC9 /* Core Layer */,
-				AA89DD0C220CB202009DBFED /* Info.plist */,
 				AA84495822494C41006054A5 /* profileModel.xcdatamodeld */,
 			);
 			path = SOA;

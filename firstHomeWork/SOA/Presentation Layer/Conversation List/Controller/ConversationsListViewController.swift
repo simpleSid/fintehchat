@@ -26,7 +26,6 @@ class ConversationsListViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.tableView.reloadData()
     }
     
@@ -61,27 +60,14 @@ class ConversationsListViewController: UITableViewController {
             cell.backgroundColor = UIColor.tidal
             
             cell.nameLabel.text = Users.onlineUsers[indexPath.row].name ?? "name"
-            
             cell.timeOfLastMessageLabel.text = dateManager.dateFormater.string(from: Users.onlineUsers[indexPath.row].date ?? Date())
+            cell.lastMessageLabel.text = Users.onlineUsers[indexPath.row].message
             
-            //            cell = ConversationListManager.changeMessagefont(cell: cell, user: Users.onlineUsers[indexPath.row])
-            var nameOfFont = ""
-            if Users.onlineUsers[indexPath.row].message == nil {
-                nameOfFont = "Chalkboard SE"
-                cell.lastMessageLabel.text = "No messages yet"
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-            } else {
-                nameOfFont = "Apple SD Gothic Neo"
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-                cell.lastMessageLabel.text = Users.onlineUsers[indexPath.row].message
-            }
+            cell = ConversationListManager.changeMessagefont(cell: cell, message: Users.onlineUsers[indexPath.row].message)
+  
+            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, hasUnreadMessages: Users.onlineUsers[indexPath.row].hasUnreadMessages)
             
-            //            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, user: Users.onlineUsers[indexPath.row])
-            if Users.onlineUsers[indexPath.row].hasUnreadMessages {
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont + " Bold", size: 17)
-            } else {
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-            }
+            
         case 1:
             
             let currentDay = Calendar.current.dateComponents([.day], from: Users.oflineUsers[indexPath.row].date ?? Date())
@@ -95,26 +81,13 @@ class ConversationsListViewController: UITableViewController {
             cell.timeOfLastMessageLabel.textColor = ThemeManager.currentTheme().titleTextColor
             
             cell.nameLabel.text = Users.oflineUsers[indexPath.row].name ?? "name"
-            
             cell.timeOfLastMessageLabel.text = dateManager.dateFormater.string(from: Users.oflineUsers[indexPath.row].date ?? Date())
+            cell.lastMessageLabel.text = Users.oflineUsers[indexPath.row].message
             
-            //            cell = ConversationListManager.changeMessagefont(cell: cell, user: Users.oflineUsers[indexPath.row])
-            var nameOfFont = ""
-            if Users.oflineUsers[indexPath.row].message == nil {
-                nameOfFont = "Chalkboard SE"
-                cell.lastMessageLabel.text = "No messages yet"
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-            } else {
-                nameOfFont = "Apple SD Gothic Neo"
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-                cell.lastMessageLabel.text = Users.oflineUsers[indexPath.row].message
-            }
-            //            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, user: Users.oflineUsers[indexPath.row])
-            if Users.oflineUsers[indexPath.row].hasUnreadMessages {
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont + " Bold", size: 17)
-            } else {
-                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
-            }
+            cell = ConversationListManager.changeMessagefont(cell: cell, message: Users.oflineUsers[indexPath.row].message)
+
+            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, hasUnreadMessages: Users.oflineUsers[indexPath.row].hasUnreadMessages)
+            
         default:
             break
         }
