@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol MessageCellConfiguration: class {
+    var text: String? { get set }
+}
+
 class StoredMessage: MessageCellConfiguration {
     var text: String?
     var fromUser: String?
@@ -21,7 +25,3 @@ class StoredMessage: MessageCellConfiguration {
     }
     
 }
-
-//class StoredMessages {
-//    var messages = [StoredMessages]()
-//}

@@ -8,20 +8,22 @@
 
 import Foundation
 
+protocol ConverastionCellConfiguration : class {
+    var name: String? { get set }
+    var message: String? { get set }
+    var date: Date? { get set }
+    var online: Bool { get set }
+    var hasUnreadMessages: Bool { get set }
+}
+
 class User: ConverastionCellConfiguration {
     
     var name: String?
-    
     var message: String?
-    
     var date: Date?
-    
     var online: Bool
-    
     var hasUnreadMessages: Bool
-    
     var isReuse: Bool
-    
     var storedMessages = [StoredMessage]()
     
     init(name: String?, message: String?, date: Date?, online: Bool, hasUnreadMessage: Bool) {

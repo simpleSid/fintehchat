@@ -8,6 +8,20 @@
 
 import Foundation
 
+protocol CommunicatorDelegate : class {
+    //discovering
+    func didFoundUser(userID: String, username: String?)
+    func didLostUser(userID: String)
+    
+    //errors
+    func failedToStartBrowsingForUsers(error: Error)
+    func failedToStartAdvertising(error: Error)
+    
+    //messages
+    func didReceiveMessage(text: String, fromUser: String, toUser: String)
+    
+}
+
 class CommunicationManager: CommunicatorDelegate {
     
     var communicator: MultipeerCommunicator
@@ -41,7 +55,3 @@ class CommunicationManager: CommunicatorDelegate {
     
 }
 
-
-//print("we are ine 11111111111111")
-//Users.users.append(User(name: username, message: "did found \(String(describing: username))", date: Date(), online: true, hasUnreadMessage: true))
-//print("so many users is online: ---------  \(Users.users.count)")
