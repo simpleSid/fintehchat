@@ -62,6 +62,3 @@ class Users {
         }
     }
 }
-
-
-//User(name: "friend 1", message: "lol", date: Calendar.current.date(byAdding: Calendar.Component.day, value: -1, to: Date()), online: true, hasUnreadMessage: false)

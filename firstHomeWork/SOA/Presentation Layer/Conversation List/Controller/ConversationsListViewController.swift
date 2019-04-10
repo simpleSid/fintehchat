@@ -9,13 +9,13 @@
 import UIKit
 
 class ConversationsListViewController: UITableViewController {
-
+    
     @IBOutlet weak var profileBarButtonItem: UIBarButtonItem!
     var multipeerManager = CommunicationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.tableView.separatorColor = UIColor.biscay
         self.view.backgroundColor = ThemeManager.currentTheme().backgroundColor
         self.tableView.backgroundColor = ThemeManager.currentTheme().backgroundColor
@@ -23,7 +23,7 @@ class ConversationsListViewController: UITableViewController {
         
         multipeerManager.delegate = self
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -34,7 +34,7 @@ class ConversationsListViewController: UITableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-
+    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return section == 0 ? Users.onlineUsers.count : Users.oflineUsers.count
@@ -64,14 +64,28 @@ class ConversationsListViewController: UITableViewController {
             
             cell.timeOfLastMessageLabel.text = dateManager.dateFormater.string(from: Users.onlineUsers[indexPath.row].date ?? Date())
             
-            cell = ConversationListManager.changeMessagefont(cell: cell, user: Users.onlineUsers[indexPath.row])
+            //            cell = ConversationListManager.changeMessagefont(cell: cell, user: Users.onlineUsers[indexPath.row])
+            var nameOfFont = ""
+            if Users.onlineUsers[indexPath.row].message == nil {
+                nameOfFont = "Chalkboard SE"
+                cell.lastMessageLabel.text = "No messages yet"
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
+            } else {
+                nameOfFont = "Apple SD Gothic Neo"
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
+                cell.lastMessageLabel.text = Users.onlineUsers[indexPath.row].message
+            }
             
-            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, user: Users.onlineUsers[indexPath.row])
-            
+            //            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, user: Users.onlineUsers[indexPath.row])
+            if Users.onlineUsers[indexPath.row].hasUnreadMessages {
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont + " Bold", size: 17)
+            } else {
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
+            }
         case 1:
             
             let currentDay = Calendar.current.dateComponents([.day], from: Users.oflineUsers[indexPath.row].date ?? Date())
-
+            
             dateManager.dateFormater.dateFormat = dateManager.lastMessageDayIsCurrantDay(lastMessage: currentDay)
             
             cell.backgroundColor = ThemeManager.currentTheme().backgroundColor
@@ -84,19 +98,32 @@ class ConversationsListViewController: UITableViewController {
             
             cell.timeOfLastMessageLabel.text = dateManager.dateFormater.string(from: Users.oflineUsers[indexPath.row].date ?? Date())
             
-            cell = ConversationListManager.changeMessagefont(cell: cell, user: Users.oflineUsers[indexPath.row])
-            
-            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, user: Users.oflineUsers[indexPath.row])
-            
+            //            cell = ConversationListManager.changeMessagefont(cell: cell, user: Users.oflineUsers[indexPath.row])
+            var nameOfFont = ""
+            if Users.oflineUsers[indexPath.row].message == nil {
+                nameOfFont = "Chalkboard SE"
+                cell.lastMessageLabel.text = "No messages yet"
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
+            } else {
+                nameOfFont = "Apple SD Gothic Neo"
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
+                cell.lastMessageLabel.text = Users.oflineUsers[indexPath.row].message
+            }
+            //            cell = ConversationListManager.changeUnreadMessageStyle(cell: cell, user: Users.oflineUsers[indexPath.row])
+            if Users.oflineUsers[indexPath.row].hasUnreadMessages {
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont + " Bold", size: 17)
+            } else {
+                cell.lastMessageLabel.font = UIFont(name: nameOfFont, size: 17)
+            }
         default:
             break
         }
-
+        
         return cell
     }
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard segue.identifier == "goToConversation" else { return }
@@ -120,7 +147,7 @@ class ConversationsListViewController: UITableViewController {
         
     }
     
-
+    
 }
 
 
@@ -162,10 +189,10 @@ extension ConversationsListViewController: CommunicatorDelegate {
     }
     
     func failedToStartBrowsingForUsers(error: Error) {
-//        asdfasfd
+        //        asdfasfd
     }
     
     func failedToStartAdvertising(error: Error) {
-       ////sadfasdfsdf
+        ////sadfasdfsdf
     }
 }

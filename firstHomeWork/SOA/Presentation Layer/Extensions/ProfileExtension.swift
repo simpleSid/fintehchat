@@ -34,7 +34,6 @@ extension Profile {
     
     static func findOrInsertProfileData(in context: NSManagedObjectContext) -> Profile? {
         
-//        let stack = CoreDataStack()
         
         guard let model = context.persistentStoreCoordinator?.managedObjectModel else {
             print("Model is not available in context!")
@@ -69,38 +68,17 @@ extension Profile {
 }
 
 
-
-class CoreDataManager {
+class MyProfile {
+    var name: String
+    var description: String
+    var image: UIImage
     
-    static var shared = CoreDataManager()
-    
-    var cdStack : CoreDataStack
-    
-    private init() {
-        cdStack = CoreDataStack()
+    init(name: String?, description: String?, image: UIImage?) {
+        self.name = name ?? "name"
+        self.description = description ?? "description"
+        self.image = image ?? #imageLiteral(resourceName: "placeholder-user")
     }
-    
-    func saveCurrentProfile(myProfile: MyProfile, completion: (() ->())?) {
-        let context = self.cdStack.saveContext
-        let profile = Profile.findOrInsertProfileData(in: context)
-        context.perform {
-            profile?.name = myProfile.name
-            profile?.about = myProfile.description
-            profile?.image = myProfile.image.pngData()
-            self.cdStack.performSave(with: context, completion: completion)
-        }
-    }
-    
-    public func getCurrentProfile() -> MyProfile {
-        let context = self.cdStack.mainContext
-        let profile = Profile.findOrInsertProfileData(in: context)
-        self.cdStack.performSave(with: context, completion: nil)
-        print(profile?.name ?? "нету имени", profile?.about ?? "нету описания")
-        return MyProfile(name: profile?.name,
-                         description: profile?.about,
-                         image: UIImage(data: (profile?.image) ?? #imageLiteral(resourceName: "placeholder-user").pngData()!))
-    }
-    
 }
+
 
 
