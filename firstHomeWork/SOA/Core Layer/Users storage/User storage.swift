@@ -37,39 +37,3 @@ class User: ConverastionCellConfiguration {
     }
     
 }
-
-
-
-protocol UsersStorage {
-    var users: [ConverastionCellConfiguration] {get set}
-}
-
-class Userss: UsersStorage {
-    var users: [ConverastionCellConfiguration] = [ConverastionCellConfiguration]()
-}
-
-
-
-
-protocol UserStorage {
-    func getOnlineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration]
-    func getOflineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration]
-}
-
-class OnlineStatusService: UserStorage {
-    
-    func getOnlineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration] {
-        let users = users.filter { (user) -> Bool in
-            return user.online
-        }
-        return users
-    }
-    
-    func getOflineUsers(users: [ConverastionCellConfiguration]) -> [ConverastionCellConfiguration] {
-        let users = users.filter { (user) -> Bool in
-            return !user.online
-        }
-        return users
-    }
-    
-}

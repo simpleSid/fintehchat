@@ -14,7 +14,7 @@
 		AA0B57EE222F1AF800897DDD /* Themes.m in Sources */ = {isa = PBXBuildFile; fileRef = AA0B57ED222F1AF800897DDD /* Themes.m */; };
 		AA0B57F0222F23F800897DDD /* ThemesViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B57EF222F23F800897DDD /* ThemesViewControllerExtension.swift */; };
 		AA0B57F2222F24D800897DDD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0B57F1222F24D800897DDD /* ThemeManager.swift */; };
-		AA0E72FB2220960D00EC3D3C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E72FA2220960D00EC3D3C /* User.swift */; };
+		AA0E72FB2220960D00EC3D3C /* User storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0E72FA2220960D00EC3D3C /* User storage.swift */; };
 		AA3BB8C7221C848800F27C80 /* ProfileViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BB8C6221C848800F27C80 /* ProfileViewControllerExtension.swift */; };
 		AA3BB8CC221C87AF00F27C80 /* UIcolorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3BB8CB221C87AF00F27C80 /* UIcolorExtension.swift */; };
 		AA5B3E00224158C10053009E /* MultipeerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3DFF224158C10053009E /* MultipeerCommunicator.swift */; };
@@ -41,6 +41,8 @@
 		AAB017FB2246555700A8C880 /* CommunicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB017FA2246555700A8C880 /* CommunicationManager.swift */; };
 		AAD01D6E225DF3C0003A12DF /* CoreDatatStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD01D6D225DF3C0003A12DF /* CoreDatatStack.swift */; };
 		AAD01D72225E0C57003A12DF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD01D71225E0C57003A12DF /* CoreDataManager.swift */; };
+		AAD01D78225E37B9003A12DF /* OnlineStatusService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD01D77225E37B9003A12DF /* OnlineStatusService.swift */; };
+		AAD01D7A225E37DF003A12DF /* Users storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD01D79225E37DF003A12DF /* Users storage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +56,7 @@
 		AA0B57ED222F1AF800897DDD /* Themes.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Themes.m; sourceTree = "<group>"; };
 		AA0B57EF222F23F800897DDD /* ThemesViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewControllerExtension.swift; sourceTree = "<group>"; };
 		AA0B57F1222F24D800897DDD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
-		AA0E72FA2220960D00EC3D3C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AA0E72FA2220960D00EC3D3C /* User storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User storage.swift"; sourceTree = "<group>"; };
 		AA3BB8C6221C848800F27C80 /* ProfileViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewControllerExtension.swift; sourceTree = "<group>"; };
 		AA3BB8CB221C87AF00F27C80 /* UIcolorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIcolorExtension.swift; sourceTree = "<group>"; };
 		AA5B3DFF224158C10053009E /* MultipeerCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerCommunicator.swift; sourceTree = "<group>"; };
@@ -83,6 +85,8 @@
 		AAB017FA2246555700A8C880 /* CommunicationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunicationManager.swift; sourceTree = "<group>"; };
 		AAD01D6D225DF3C0003A12DF /* CoreDatatStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatatStack.swift; sourceTree = "<group>"; };
 		AAD01D71225E0C57003A12DF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AAD01D77225E37B9003A12DF /* OnlineStatusService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineStatusService.swift; sourceTree = "<group>"; };
+		AAD01D79225E37DF003A12DF /* Users storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Users storage.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,7 +164,6 @@
 			children = (
 				AAD01D75225E1B33003A12DF /* Extensions */,
 				AAD01D74225E195F003A12DF /* Message */,
-				AAD01D73225E193D003A12DF /* Users */,
 				AAD01D63225DED74003A12DF /* Themes */,
 				AAD01D62225DED6D003A12DF /* Profile */,
 				AAD01D61225DED56003A12DF /* Conversation */,
@@ -173,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				AA5B3E01224159C70053009E /* IDGenerator.swift */,
-				AA0B57F1222F24D800897DDD /* ThemeManager.swift */,
 				AAB017FA2246555700A8C880 /* CommunicationManager.swift */,
 				AAD01D71225E0C57003A12DF /* CoreDataManager.swift */,
 				AA96680F22384DE800EDC77E /* ReadOrWriteManager.swift */,
@@ -184,6 +186,7 @@
 		AA907D39225DE73D00B1CCC9 /* Core Layer */ = {
 			isa = PBXGroup;
 			children = (
+				AAD01D76225E370F003A12DF /* Users storage */,
 				AA96681322384E6500EDC77E /* GCDDataManager.swift */,
 				AA96681122384E3E00EDC77E /* OperationDataManager.swift */,
 				AAD01D6D225DF3C0003A12DF /* CoreDatatStack.swift */,
@@ -276,6 +279,7 @@
 		AAD01D66225DEDF4003A12DF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AA0B57F1222F24D800897DDD /* ThemeManager.swift */,
 				AA0B57C3222ECB0F00897DDD /* ThemeManagerModel.swift */,
 			);
 			path = Model;
@@ -335,14 +339,6 @@
 			path = "New Group";
 			sourceTree = "<group>";
 		};
-		AAD01D73225E193D003A12DF /* Users */ = {
-			isa = PBXGroup;
-			children = (
-				AA0E72FA2220960D00EC3D3C /* User.swift */,
-			);
-			path = Users;
-			sourceTree = "<group>";
-		};
 		AAD01D74225E195F003A12DF /* Message */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +354,16 @@
 				AA3BB8CB221C87AF00F27C80 /* UIcolorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AAD01D76225E370F003A12DF /* Users storage */ = {
+			isa = PBXGroup;
+			children = (
+				AA0E72FA2220960D00EC3D3C /* User storage.swift */,
+				AAD01D79225E37DF003A12DF /* Users storage.swift */,
+				AAD01D77225E37B9003A12DF /* OnlineStatusService.swift */,
+			);
+			path = "Users storage";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -440,7 +446,7 @@
 				AAA5566D2222A13F00202830 /* ConversationTableViewController.swift in Sources */,
 				AA0B57EE222F1AF800897DDD /* Themes.m in Sources */,
 				AA96681222384E3E00EDC77E /* OperationDataManager.swift in Sources */,
-				AA0E72FB2220960D00EC3D3C /* User.swift in Sources */,
+				AA0E72FB2220960D00EC3D3C /* User storage.swift in Sources */,
 				AAA5567322233C1700202830 /* ConversationListManager.swift in Sources */,
 				AAA5566B2222A0B100202830 /* DialogTableViewCell.swift in Sources */,
 				AAB017FB2246555700A8C880 /* CommunicationManager.swift in Sources */,
@@ -451,10 +457,12 @@
 				AA96681022384DE800EDC77E /* ReadOrWriteManager.swift in Sources */,
 				AA84495722494A23006054A5 /* ProfileExtension.swift in Sources */,
 				AAA556712223337000202830 /* DateManager.swift in Sources */,
+				AAD01D78225E37B9003A12DF /* OnlineStatusService.swift in Sources */,
 				AAD01D72225E0C57003A12DF /* CoreDataManager.swift in Sources */,
 				AA5B3E00224158C10053009E /* MultipeerCommunicator.swift in Sources */,
 				AA0B57C4222ECB0F00897DDD /* ThemeManagerModel.swift in Sources */,
 				AAD01D6E225DF3C0003A12DF /* CoreDatatStack.swift in Sources */,
+				AAD01D7A225E37DF003A12DF /* Users storage.swift in Sources */,
 				AA0B57C2222DBC3400897DDD /* ThemesViewController.swift in Sources */,
 				AA903617221F30A5008ECA09 /* ConversationTableViewCell.swift in Sources */,
 				AA84495A22494C41006054A5 /* profileModel.xcdatamodeld in Sources */,
