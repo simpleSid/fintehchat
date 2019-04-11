@@ -28,7 +28,7 @@ class MultipeerCommunicator: NSObject, Communicator {
     var serviceType = "tinkoff-chat"
     var session: MCSession
     
-    var testMessage = Message(text: "Hello world")
+    var testMessage = Mesage(text: "Hello world")
     
     override init() {
         self.advertiser = MCNearbyServiceAdvertiser(peer: self.peerID, discoveryInfo: self.discoveryInfo, serviceType: self.serviceType)
@@ -54,7 +54,7 @@ class MultipeerCommunicator: NSObject, Communicator {
     
     func sendMessage(message: String, to userID: String, completionHandler: ((Bool, Error?) -> ())?) {
         let jsonEncoder = JSONEncoder()
-        let msg = Message(text: message)
+        let msg = Mesage(text: message)
         if let data = try? jsonEncoder.encode(msg) {
             do {
                 try self.session.send(data, toPeers: self.session.connectedPeers, with: .reliable)
@@ -135,7 +135,7 @@ extension MultipeerCommunicator: MCSessionDelegate {
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         print("recive data")
         do {
-            let message = try JSONDecoder().decode(Message.self, from: data)
+            let message = try JSONDecoder().decode(Mesage.self, from: data)
             print(message.text, message.messageId,peerID.displayName)
             self.delegate?.didReceiveMessage(text: message.text, fromUser: peerID.displayName, toUser: self.peerID.displayName)
         } catch let error {

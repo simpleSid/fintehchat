@@ -20,6 +20,8 @@
 		AA5B3E00224158C10053009E /* MultipeerCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3DFF224158C10053009E /* MultipeerCommunicator.swift */; };
 		AA5B3E02224159C70053009E /* IDGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3E01224159C70053009E /* IDGenerator.swift */; };
 		AA5B3E06224162BB0053009E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5B3E05224162BB0053009E /* Message.swift */; };
+		AA7357CC225FD419008ED6FA /* ConversationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7357CB225FD419008ED6FA /* ConversationExtension.swift */; };
+		AA7357CE225FD450008ED6FA /* MessageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7357CD225FD450008ED6FA /* MessageExtension.swift */; };
 		AA84495722494A23006054A5 /* ProfileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA84495622494A23006054A5 /* ProfileExtension.swift */; };
 		AA84495A22494C41006054A5 /* profileModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA84495822494C41006054A5 /* profileModel.xcdatamodeld */; };
 		AA89DD01220CB201009DBFED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89DD00220CB201009DBFED /* AppDelegate.swift */; };
@@ -62,6 +64,8 @@
 		AA5B3DFF224158C10053009E /* MultipeerCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerCommunicator.swift; sourceTree = "<group>"; };
 		AA5B3E01224159C70053009E /* IDGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDGenerator.swift; sourceTree = "<group>"; };
 		AA5B3E05224162BB0053009E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		AA7357CB225FD419008ED6FA /* ConversationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationExtension.swift; sourceTree = "<group>"; };
+		AA7357CD225FD450008ED6FA /* MessageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageExtension.swift; sourceTree = "<group>"; };
 		AA84495622494A23006054A5 /* ProfileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExtension.swift; sourceTree = "<group>"; };
 		AA84495922494C41006054A5 /* profileModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = profileModel.xcdatamodel; sourceTree = "<group>"; };
 		AA89DCFD220CB201009DBFED /* firstHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firstHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,6 +194,9 @@
 				AA96681322384E6500EDC77E /* GCDDataManager.swift */,
 				AA96681122384E3E00EDC77E /* OperationDataManager.swift */,
 				AAD01D6D225DF3C0003A12DF /* CoreDatatStack.swift */,
+				AA84495622494A23006054A5 /* ProfileExtension.swift */,
+				AA7357CB225FD419008ED6FA /* ConversationExtension.swift */,
+				AA7357CD225FD450008ED6FA /* MessageExtension.swift */,
 				AA5B3DFF224158C10053009E /* MultipeerCommunicator.swift */,
 			);
 			path = "Core Layer";
@@ -350,7 +357,6 @@
 		AAD01D75225E1B33003A12DF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				AA84495622494A23006054A5 /* ProfileExtension.swift */,
 				AA3BB8CB221C87AF00F27C80 /* UIcolorExtension.swift */,
 			);
 			path = Extensions;
@@ -450,6 +456,7 @@
 				AAA5567322233C1700202830 /* ConversationListManager.swift in Sources */,
 				AAA5566B2222A0B100202830 /* DialogTableViewCell.swift in Sources */,
 				AAB017FB2246555700A8C880 /* CommunicationManager.swift in Sources */,
+				AA7357CC225FD419008ED6FA /* ConversationExtension.swift in Sources */,
 				AA0B57EB222F1AA100897DDD /* ThemesViewControllerObj.m in Sources */,
 				AA0B57F0222F23F800897DDD /* ThemesViewControllerExtension.swift in Sources */,
 				AA89DD03220CB201009DBFED /* ProfileViewController.swift in Sources */,
@@ -459,6 +466,7 @@
 				AAA556712223337000202830 /* DateManager.swift in Sources */,
 				AAD01D78225E37B9003A12DF /* OnlineStatusService.swift in Sources */,
 				AAD01D72225E0C57003A12DF /* CoreDataManager.swift in Sources */,
+				AA7357CE225FD450008ED6FA /* MessageExtension.swift in Sources */,
 				AA5B3E00224158C10053009E /* MultipeerCommunicator.swift in Sources */,
 				AA0B57C4222ECB0F00897DDD /* ThemeManagerModel.swift in Sources */,
 				AAD01D6E225DF3C0003A12DF /* CoreDatatStack.swift in Sources */,

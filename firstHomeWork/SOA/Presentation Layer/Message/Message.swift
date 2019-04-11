@@ -29,7 +29,7 @@ class StoredMessage: MessageCellConfiguration {
     
 }
 
-class Message: Codable {
+class Mesage: Codable {
     var eventType: String
     var text: String
     var messageId: String

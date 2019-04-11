@@ -84,4 +84,29 @@ class CoreDataStack {
         }
     }
     
+    // фетч резалт контроллер который возвращает все объекты выбранной сущности. такой контроллер использовать в conversationListViewController
+    static func fetchedResultsController(entityName: String, keyForSort: String, sectionName: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                  managedObjectContext: CoreDataManager.shared.cdStack.mainContext,
+                                                                  sectionNameKeyPath: sectionName,
+                                                                  cacheName: nil)
+        return fetchedResultsController
+    }
+    
+    // получить все сообщения для определенной беседы. такой контроллер использовать в ConversationViewController
+    static func fetchedResultController2(entityName: String, keyForSort: String, conversationId: String) -> NSFetchedResultsController<NSFetchRequestResult> {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let sortDescriptor = NSSortDescriptor(key: keyForSort, ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.predicate = NSPredicate(format: "conversationId == %@", conversationId)
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                               managedObjectContext: CoreDataManager.shared.cdStack.mainContext,
+                                                               sectionNameKeyPath: nil,
+                                                               cacheName: nil)
+        return fetchResultController
+    }
+    
 }
